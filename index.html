@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <style>
+        :root {
+            background: black;
+            height: 100%;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        span {
+            color: white;
+            font-size: 7em;
+            text-align: center;
+        }
+    </style>
+    <div>
+        <span id="time">
+            ...
+        </span>
+    </div>
+    <script>
+
+        (async () => {
+            const sleep = (seconds) => new Promise((res) => setTimeout(res, seconds))
+
+            while (true) {
+                const theDay = new Date(2024, 3, 26);
+                const now = new Date();
+                let time = Math.floor((theDay.getTime() - now.getTime()) / 1000)
+
+                time = time.toLocaleString()
+
+                document.getElementById("time").innerHTML = time
+                // console.log()
+                await sleep(1000)
+            }
+        })()
+    </script>
+    <script type="module" source="script.js" />
+</body>
+
+</html>
